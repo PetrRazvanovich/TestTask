@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="Style.css" >
+    <title>Task4</title>
+    <script type="text/javascript">
+        function array_processing(form){
+         var strSplit =form.calculate_arr.value.split(',');
+         var first_arg=strSplit[0];
+         var sec_arg=strSplit[1];
+         var arr=first_arg.split(' ');
+             var leng =arr.length;
+             var x=leng/sec_arg;
+             var b=Math.ceil(x);
+             var lenglarr=leng/x;
+             x=Math.floor(x);
+         var BigArr= new Array(x);
+            for (var j=0;j < BigArr.length; j++) {
+                 BigArr[j] = new Array(lenglarr);
+                for(var i=0;i<lenglarr;i++){
+                    if(i==0 && i==(lenglarr-1)){
+                     BigArr[j][i]=("[" + arr[i]+ "]");
+                    }else if(i==0){
+                     BigArr[j][i]=("[" + arr[i]);
+                    }else if(i==(lenglarr-1)){
+                     BigArr[j][i]=(arr[i]+"]");
+                    }else BigArr[j][i]=arr[i];
+                }
+                arr.splice(0,sec_arg);
+             }
+           if(x==b){
+            console.log("Результат: "+"["+BigArr+"]");
+            }else {
+                console.log("Результат: "+"["+BigArr+"]");
+                console.log("Количества этих чисел не хватило на подходящий под условие массив: "+arr);
+            }
+            document.getElementById("output_pl_main_cons").innerHTML="Результат смотеть в консоли";
+        }
+    </script>
+</head>
+<body>
+      <div class="how_many">
+        <span> Заполните поле: массив без скобок, элементы массива через пробелы, арументы отделить запятой</span>
+      </div>
+     <form action="" method="post" name="form_arr">
+        <div class="form_div">
+            <input type="text" name="calculate_arr" id="calculate_arr" placeholder="  123 213 34 432 33 5, 3">
+            <input type="button" name="submit" value="Отправить" id="inp_sub" onclick="array_processing(form_arr)">
+        </div>
+    </form>
+    <div id="output_pl_main_cons">
+   </div>
+</body>
+</html>

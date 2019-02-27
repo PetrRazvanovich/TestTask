@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" type="text/css" href="Style.css" >
+    <title>Task6</title>
+    <script type="text/javascript">
+     function array_processing(form){
+         var strSplit =form.calculate_arr.value.split(',');
+         var first_arg=strSplit[0];
+         var sec_arg=strSplit[1];
+         var arr=first_arg.split(' ');
+         var x= 0;
+         var BigArr= new Array(arr.length);
+          for (var i=0;i < arr.length; i++) {
+             BigArr[i] = new Array(1);
+                BigArr[i][0]=arr[i];
+                if(x<BigArr[i][0].length)x=BigArr[i][0].length;
+         }
+           for (var i=0;i < arr.length; i++){
+            if (BigArr[i][0].length<x){
+              var y=(x-BigArr[i][0].length);
+              var temp=[];
+              temp[0]=BigArr[i][0];
+              for (var j = 0; j < y; j++) {
+                temp.push(" ");
+              }
+              temp=temp.join("");
+              BigArr[i][0]=temp;
+           }
+           BigArr[i].push(sec_arg);
+           BigArr[i].unshift(sec_arg);
+           BigArr[i]=BigArr[i].join(" ");
+         }
+         var temp=[];
+         for (var i = 0; i < (x+4); i++) {
+           temp.push(sec_arg);
+         }
+         temp=temp.join("");
+         BigArr.push(temp);
+         BigArr.unshift(temp);
+         console.log("Результат:");
+          for (var i=0;i < BigArr.length; i++)
+        console.log(BigArr[i]);
+        document.getElementById("output_pl_main_cons").innerHTML="Результат смотеть в консоли";
+     }
+    </script>
+</head>
+<body>
+     <div class="how_many">
+        <span>Заполните поле: массив без скобок, элементы массива через пробелы, арументы отделить запятой</span>
+      </div>
+     <form action="" method="post" name="form_arr" >
+        <div class="form_div">
+            <input type="text" name="calculate_arr" id="calculate_arr" placeholder="  Create a frame, +">
+            <input type="button" name="submit" value="Отправить" id="inp_sub" onclick="array_processing(form_arr)">
+        </div>
+    </form>
+    <div id="output_pl_main_cons">
+   </div>
+</body>
+</html>

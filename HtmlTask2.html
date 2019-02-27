@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Task1</title>
+    <link rel="stylesheet" type="text/css" href="Style.css" >
+    <script type="text/javascript">
+         function figures_print(form) {
+            var index=form.calculate_sheepp.value;
+            if(index<0 && index > (-31)){
+                index=index*(-1);
+            }else if(index>30||index<(-30)){
+                document.getElementById('output_pl_main').style.marginLeft="39%";
+                document.getElementById('output_pl_main').innerHTML="Но...Ноо...В условии говорилось от 0 до 30...";
+                return false;
+            }else if(index==0){
+                document.getElementById('output_pl_main').style.marginLeft="39.5%";
+                document.getElementById('output_pl_main').innerHTML="Почему 0 блоков?";
+                return false;
+            }
+            var place=((index*20)+(index*10));
+                place=(place+"px");
+                document.getElementById('output_pl_main').style.width=place;
+                document.getElementById('output_pl_main').style.height=place;
+                for (var j = 0; j < index*index; j++) {
+                    var element=document.getElementById('output_pl_main');
+                    var div_el2=document.createElement('div');
+                        div_el2.className="ColorBlock";
+                    var color=Math.floor(Math.random()*999999);
+                        color="#"+color;
+                        div_el2.style.backgroundColor=color;
+                        element.appendChild(div_el2);
+                 }
+         }
+    </script>
+</head>
+<body>
+    <div class="how_many">
+        <span> Сколько блоков в ряду??</span>
+    </div>
+    <form action="" method="post" name="form_sheep">
+        <div class="form_div">
+            <input type="number" name="calculate_sheepp" id="calculate_cheep" placeholder="  по условию от 0 до 30">
+            <input type="button" name="submit" value="Отправить" id="inp_sub" onclick="figures_print(form_sheep)">
+        </div>
+
+    </form>
+    <div id="output_pl_main">
+   </div>
+</body>
+</html>

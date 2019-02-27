@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="Style.css" >
+    <title>Task3</title>
+<script type="text/javascript">
+   function findLongestWord(form){
+    var spl=form.text_str.value;
+        spl=spl.split(' ');
+    var sh=100000;
+    for(var i = 0; i < spl.length; i++){
+        if(spl[i].length < sh&& spl[i].length!==0){
+            sh = spl[i].length;}
+     }
+    document.getElementById("shortest_word").innerHTML="Результат: "+sh;
+ }
+</script>
+</head>
+<body>
+    <div class="how_many">
+        <span> Задача: узнать длинну самого короткого слова в тексте</span>
+    </div>
+    <form method="post" action="" name="form_leng">
+         <div class="form_div">
+            <input type="text" name="text_str" placeholder="  Введите текст...">
+            <input type="button" value="Узнать!" id="inp_sub" onclick="findLongestWord(form)">
+        </div>
+    </form>
+    <div id="shortest_word">
+    </div>
+</body>
+</html>

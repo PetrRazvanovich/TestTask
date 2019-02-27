@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="Style.css" >
+  <title>Task7</title>
+  <script type="text/javascript">
+    var obj;
+  function array_processing(form){
+    document.getElementById("output_pl_main_cons").innerHTML="Результат смотеть в консоли";
+    var agr=form.calulcate_arr.value;
+     obj = {
+          value: 0,
+          setValue: function(number) {
+            obj.value=number;
+            return "Текущее значение изменено на: "+obj.value;
+          },
+          getValue: function() {
+            return "Текущее значение: "+obj.value;
+           }
+      };
+    obj.value=form.calulcate_arr.value;
+    console.log("Имя объекта 'obj'");
+    return obj+console.log(obj);
+  }
+  </script>
+</head>
+<body>
+   <div class="how_many">
+        <span>Эта функция которая принимает один аргумент, и возвращает объект, который имеет только два метода</span>
+      </div>
+     <form action="" method="post" name="form_arr">
+        <div class="form_div">
+            <input type="text" name="calulcate_arr" id="calculate_arr" placeholder="  Например: 35345">
+            <input type="button" name="submit" value="Отправить" id="inp_sub" onclick="array_processing(form_arr)">
+        </div>
+    </form>
+    <div id="output_pl_main_cons">
+   </div>
+</body>
+</html>
