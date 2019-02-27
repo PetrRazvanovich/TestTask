@@ -27,7 +27,8 @@ a span{
 }
 .nuber_task_main{
     width: 100%;
-    height: auto;
+    height: 500px;
+    margin-bottom: 200px;
 }
 .number_task{
     line-height: 50px;
